@@ -1,8 +1,9 @@
-title Proto1
+title Alone in the Forest
 author INK + LegrandK
 homepage www.santaclaragames.com
 
-zoomscreen 9x9
+text_color green
+zoomscreen 12x12
 (color_palette  c64 )
 (run_rules_on_level_start )
 ( debug )
@@ -354,11 +355,11 @@ RULES
 
 (salir de la tumba)
 
-[ > Tombstone Temp3 ] -> [ Tombstone Temp4 ] Sfx0
-[ > Tombstone Temp2 ] -> [ Tombstone Temp3 ] Sfx0
-[ > Tombstone Temp ] -> [ Tombstone Temp2 ] Sfx0
-[ > Tombstone ] -> [ Tombstone Temp ] Sfx0
-[ Tombstone Temp4  ] -> [ Player2 ] Sfx1 Message Booooo ...
+[ > Tombstone Temp3 ] -> [ Tombstone Temp4 ] Sfx0 Message Booooo ...
+[ > Tombstone Temp2 ] -> [ Tombstone Temp3 ] Sfx0 Message get me out of here!
+[ > Tombstone Temp ] -> [ Tombstone Temp2 ] Sfx0 Message help!
+[ > Tombstone ] -> [ Tombstone Temp ] Sfx0 Message help!
+[ Tombstone Temp4  ] -> [ Player2 ] Sfx1 
 
 
 [ Stationary Monster ] -> [ randomdir Monster ]
@@ -370,7 +371,7 @@ RULES
 [ > Player1 | Monster ] -> [ Tombstone | ] Sfx2 Message Ouch!
 
 
-( final )
+( final ) 
 
 late [ Player3 Chest ] -> Sfx3 Win
 
@@ -393,21 +394,22 @@ LEVELS
 
 Message ::: Find the Chest :::
 
-ffff...w..w.....w..w...........
-fff....wwwww....wwww...........
-ff....!............ww.w....w.w.
-fff.................ww%wwwwwwww
-ff..............!...w#o########
-ffffff..........b!.bww%ocoooooo
-ff..................ww%ooo;;;oo
-f....ff.........b..nww%o;,;;;,;
-f...f.f.........2222w*+o;,;$;,;
-fff..f...........m2nww%o;,;;;,;
-f.ffff............2.ww%ooo;;;oo
-f................n2pww%oooooooo
-f...fff...........n.w#o########
-ff.................www%wwwwwwww
-fffffff...........wwwwwwwwww...
+ffffmffwbbw....ww..w!s.!f....ff!..f....b1bfffffff
+fff.!..wwwww..4.wwww..m....bn!..4.4.!.b....f1ffff
+ff....!.....3......ww.wwwwwwww.www..!....b...f.ff
+fff........!......mmww%wwwwwwwww%www...bbb.!...ff
+ff.!..3.!.3.!.3.!...w#o#########o#ww.4..........f
+ffffff.......!..b!.bww%ocooooooo%www....4....f.3f
+ff....m.2.b.........ww%ooo;;;ooo%www!.n...!.fff.f
+f1...ffm.2.23...b...w*+o;,;;;,;o+**w..3!1....1fff
+f..1f.f...p.4bm32222w*+o;,;$;,;o+**ww!....14....f
+fff4.f...1........2.w*+o;,;;;,;o+**ww..b.!..o...f
+f1ffff.3....b.3...4.ww%ooo;;;ooo%wwww.4.......2ff
+fb.m..4..b.4......2.ww%ooooooooo%www.!.4....ff.bf
+f.sbfff.....3....m..w#o#########o#www....!...f.ff
+ff........!.m.!.3..www%wwwwwwwww%wwwwwww..4!..fff
+ffffbbf4........n.wwwwfwwwww.b.wwwwwbbbwww...ffff
+.!f..3..3.ff!.....wwffffwww.b4.!4.ww...4fww.2f!bf
 
 Message You've Got Your Gold, but not your Soul
 
