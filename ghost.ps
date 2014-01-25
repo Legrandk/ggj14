@@ -6,6 +6,7 @@ zoomscreen 9x9
 (color_palette  c64 )
 (run_rules_on_level_start )
 ( debug )
+noundo 
 
 ========
 OBJECTS
@@ -22,6 +23,9 @@ Temp2
 black
 
 Temp3
+black
+
+Temp4
 black
 
 Background
@@ -175,7 +179,7 @@ Sfx4 93517102 (Respawn)
 COLLISIONLAYERS
 ================
 
-Temp, Temp2, Temp3
+Temp, Temp2, Temp3, Temp4
 Background
 Trap, Gold
 Player1, Player3, CastleWall, Wall, Tombstone, Water, Monster1, Corpse
@@ -187,13 +191,14 @@ RULES
 ======
 
 ( al principio)
-[ > Tombstone ] -> Cancel 
+([ > Tombstone ] -> Cancel )
 
 (salir de la tumba)
-[ Action Tombstone Temp2 ] -> [ Tombstone Temp3 ] Sfx0
-[ Action Tombstone Temp ] -> [ Tombstone Temp2 ] Sfx0
-[ Action Tombstone ] -> [ Tombstone Temp ] Sfx0
-[ Tombstone Temp3  ] -> [ Player2 ] Sfx1 Message Booooo ...
+[ > Tombstone Temp3 ] -> [ Tombstone Temp4 ] Sfx0
+[ > Tombstone Temp2 ] -> [ Tombstone Temp3 ] Sfx0
+[ > Tombstone Temp ] -> [ Tombstone Temp2 ] Sfx0
+[ > Tombstone ] -> [ Tombstone Temp ] Sfx0
+[ Tombstone Temp4  ] -> [ Player2 ] Sfx1 Message Booooo ...
 
 
 [ Stationary Monster1 ] -> [ randomdir Monster1 ]
@@ -245,6 +250,8 @@ Message You've Got Your Gold, but not your Soul
 
 Message Be Brave and do not sell your Soul!
 
-Message Made with love in Donostia - San Sebastian (Basque Coutry)
+Message Made with love in Donostia - Basque Coutry
 
-Message Global Game Jam 2014 (cc-by)
+Message Global Game Jam 2014 
+
+Message (cc-by) Santa Clara Games
