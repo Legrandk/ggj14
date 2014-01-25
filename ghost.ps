@@ -57,6 +57,14 @@ White Black
 00000
 0.0.0
 
+Player3
+DarkGray DarkGreen Grey DarkGreen
+.000.
+.111.
+22222
+.333.
+.3.3.
+
 
 CastleWall
 Grey Black LightGrey
@@ -139,9 +147,10 @@ T = Tombstone
 k = Trap
 P = Player1
 G = Player2
+D = Player3
 M = Monster1
 W = Water
-Player = Player1 or Player2 or Tombstone
+Player = Player1 or Player2 or Player3 or Tombstone
 
 
 (
@@ -159,6 +168,8 @@ Player1 move 87449107 (Steps)
 Sfx0 56009504 (golpear tumba)
 Sfx1 77304503 (salir de la tumba)
 Sfx2 93816904 (Hit)
+Sfx3 86017900 (Pickup gold!)
+Sfx4 93517102 (Respawn)
 
 ================
 COLLISIONLAYERS
@@ -167,7 +178,7 @@ COLLISIONLAYERS
 Temp, Temp2, Temp3
 Background
 Trap, Gold
-Player1, CastleWall, Wall, Tombstone, Water, Monster1, Corpse
+Player1, Player3, CastleWall, Wall, Tombstone, Water, Monster1, Corpse
 Player2, CastleWall2
 
 
@@ -197,10 +208,10 @@ RULES
 
 
 ( mega final )
-late [ Player1 Gold ] -> Win
+late [ Player3 Gold ] -> Sfx3 Win
 
 
-late [ Player2 Corpse ] -> [ Player1 ] Message Aggghhhhh ... Wake up and walk
+late [ Player2 Corpse ] -> [ Player3 ] Sfx4 Message Aggghhhhh ... Wake up and walk
 
 
 ==============
@@ -229,3 +240,11 @@ Message Find the Chest ...
 .#.#...#....#.........##ww%...................8
 ................#.#.#.#.ww%...................8
 ...#...##..##.#...#.....ww%88888888888888888888
+
+Message You've Got Your Gold, but not your Soul
+
+Message Be Brave and do not sell your Soul!
+
+Message Made with love in Donostia - San Sebastian (Basque Coutry)
+
+Message Global Game Jam 2014 (cc-by)
