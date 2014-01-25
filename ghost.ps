@@ -1,0 +1,215 @@
+title Proto1
+author IÑK + LegrandK
+homepage www.santaclaragames.com
+
+zoomscreen 9x9
+(color_palette  c64 )
+(run_rules_on_level_start )
+( debug )
+
+========
+OBJECTS
+========
+
+( =COLORS=
+blackwhitegreydarkgreylightgreygraydarkgraylightgrayreddarkredlightredbrowndarkbrownlightbrownorangeyellowgreendarkgreenlightgreenbluelightbluedarkbluepurplepink
+)
+
+Temp
+black
+
+Background
+LIGHTGREEN GREEN
+11111
+01111
+11101
+11111
+10111
+
+Wall
+BROWN DARKBROWN
+00010
+11111
+01000
+11111
+00010
+
+Player1
+Black Orange White Red
+.000.
+.111.
+22222
+.333.
+.3.3.
+
+
+Player2
+White Black
+.000.
+01010
+01010
+00000
+0.0.0
+
+Blood
+Red
+0.0.0
+.000.
+00.00
+.000.
+0.0.0
+
+
+CastleWall
+Grey Black LightGrey
+00020
+01100
+00001
+20110
+01000
+
+CastleWall2
+Grey Black LightGrey
+22020
+01100
+00001
+20110
+01022
+
+Monster1
+Black Red
+0...0
+0...0
+11011
+01010
+00000
+
+Water
+Blue White
+00000
+00010
+01000
+00011
+01000
+
+Trap
+Red
+00000
+00000
+00000
+00000
+00000
+
+
+Tombstone
+White Gray
+11011
+10001
+11011
+11011
+00000
+
+
+=======
+LEGEND
+=======
+
+
+. = Background
+# = Wall
+% = CastleWall
+8 = CastleWall2
+b = Blood
+(@ = Crate and Target )
+T = Tombstone
+k = Trap
+P = Player1
+G = Player2
+M = Monster1
+W = Water
+Player = Player1 or Player2 or Tombstone
+
+
+(
+c = Block
+B = Boss
+)
+
+=======
+SOUNDS
+=======
+
+(Crate MOVE 36772507)
+
+================
+COLLISIONLAYERS
+================
+
+Temp
+Background
+Trap
+Player1, CastleWall, Wall, Tombstone, Water, Monster1
+Player2, CastleWall2, Blood
+
+
+======
+RULES
+======
+
+( al principio)
+[ > Tombstone ] -> [ Player2 ] 
+
+[ Stationary Monster1 ] -> [ randomdir Monster1 ]
+
+( medio )
+[ Monster1 | ... | Player1 ] -> [ > Monster1 | ... | Player1 ]
+
+[ > Player1 | Monster1 ] -> [ Tombstone | ] Message Close but not cigar ...
+
+
+( final )
+
+(
+[ Blood Monster1 ] -> [ Monster1 ]
+
+
+[ > Player1 | Monster1 ] -> [ Player1 | Blood Monster1 ]
+
+
+[ Monster1 | ... | Player1 ] -> [ > Monster1 | ... | Player1 ]
+
+
+[ No Blood > Monster1 | Player1 ] -> [ Monster1 | Tombstone ]
+
+
+[ > Tombstone ] -> [ Player2 ]
+
+[ Stationary Monster1 ] -> [ randomdir Monster1 ]
+
+)
+
+
+==============
+WINCONDITIONS
+==============
+
+(All Target on Crate)
+
+=======
+LEVELS
+=======
+
+Message Find the Gold Chest ...
+
+#.....#.#.#....#.#.#....ww%88888888888888888888
+...#....m.........#...#.ww%...................8
+#.....#......#......m...ww%...................8
+#..#.....#.#......#...#.ww%...................8
+.....m..#...#..#...##...ww%...................8
+#..#......p....#..#.....ww%...................8
+#....#..#...#.....#.#...w##...................8
+...m.....#.#...........#ww%...................8
+#..........m....#.##....ww%...................8
+.#.#...#....#.........##ww%...................8
+................#.#.#.#.ww%...................8
+...#...##..##.#...#.....ww%88888888888888888888
