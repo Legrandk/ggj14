@@ -51,14 +51,6 @@ White Black
 00000
 0.0.0
 
-Blood
-Red
-0.0.0
-.000.
-00.00
-.000.
-0.0.0
-
 
 CastleWall
 Grey Black LightGrey
@@ -100,6 +92,21 @@ Red
 00000
 00000
 
+Gold
+Yellow White
+.000.
+00100
+00010
+00010
+.000.
+
+Corpse
+Grey LightGray
+.111.
+.000.
+00000
+.000.
+.0.0.
 
 Tombstone
 White Gray
@@ -116,10 +123,11 @@ LEGEND
 
 
 . = Background
+$ = Gold
 # = Wall
 % = CastleWall
 8 = CastleWall2
-b = Blood
+C = Corpse
 (@ = Crate and Target )
 T = Tombstone
 k = Trap
@@ -147,9 +155,9 @@ COLLISIONLAYERS
 
 Temp
 Background
-Trap
-Player1, CastleWall, Wall, Tombstone, Water, Monster1
-Player2, CastleWall2, Blood
+Trap, Gold
+Player1, CastleWall, Wall, Tombstone, Water, Monster1, Corpse
+Player2, CastleWall2
 
 
 ======
@@ -157,7 +165,9 @@ RULES
 ======
 
 ( al principio)
-[ > Tombstone ] -> [ Player2 ] 
+[ > Tombstone ] -> Cancel
+
+[ Action Tombstone ] -> [ Player2 ] Message Booooo ...
 
 [ Stationary Monster1 ] -> [ randomdir Monster1 ]
 
@@ -169,24 +179,12 @@ RULES
 
 ( final )
 
-(
-[ Blood Monster1 ] -> [ Monster1 ]
+
+( mega final )
+late [ Player1 Gold ] -> Win
 
 
-[ > Player1 | Monster1 ] -> [ Player1 | Blood Monster1 ]
-
-
-[ Monster1 | ... | Player1 ] -> [ > Monster1 | ... | Player1 ]
-
-
-[ No Blood > Monster1 | Player1 ] -> [ Monster1 | Tombstone ]
-
-
-[ > Tombstone ] -> [ Player2 ]
-
-[ Stationary Monster1 ] -> [ randomdir Monster1 ]
-
-)
+late [ Player2 Corpse ] -> [ Player1 ] Message Aggghhhhh ... Wake up and walk
 
 
 ==============
@@ -195,19 +193,21 @@ WINCONDITIONS
 
 (All Target on Crate)
 
+(Message You got your money but your lost your soul ...)
+
 =======
 LEVELS
 =======
 
-Message Find the Gold Chest ...
+Message Find the Chest ...
 
 #.....#.#.#....#.#.#....ww%88888888888888888888
 ...#....m.........#...#.ww%...................8
 #.....#......#......m...ww%...................8
-#..#.....#.#......#...#.ww%...................8
+#..#.....#.#......#...#.ww%..c................8
 .....m..#...#..#...##...ww%...................8
 #..#......p....#..#.....ww%...................8
-#....#..#...#.....#.#...w##...................8
+#....#..#...#.....#.#...w##..$................8
 ...m.....#.#...........#ww%...................8
 #..........m....#.##....ww%...................8
 .#.#...#....#.........##ww%...................8
