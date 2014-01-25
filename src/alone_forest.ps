@@ -4,10 +4,8 @@ homepage www.santaclaragames.com
 
 text_color green
 zoomscreen 16x16
-(color_palette  c64 )
-(run_rules_on_level_start )
 ( debug )
-verbose_logging 
+( verbose_logging )
 
 youtube r0qhAn-qfzI
 
@@ -36,16 +34,6 @@ LIGHTGREEN GREEN
 10010
 00000
 01000
-
-(
-Sand1
-LIGHTGREEN yellow
-00000
-01001
-00010
-00111
-01110
-)
 
 Sand2
 LIGHTGREEN yellow
@@ -278,13 +266,11 @@ Scroll4 = Scroll and Temp4
 
 
 . = Background
-( 1 = Sand1 )
 2 = Sand2
 3 = Sand3
 4 = Sand4
 
 ! = Tree1
-(¡ = Tree2)
 F = Fog
 B = Bush
 
@@ -334,11 +320,11 @@ CastleWall = CastleWall1 or CastleWall4
 SOUNDS
 =======
 
-(Crate MOVE 36772507)
+
 Player1 move 87449107 (Steps)
 
-Sfx0 56009504 (golpear tumba)
-Sfx1 77304503 (salir de la tumba)
+Sfx0 56009504 (knock the tombstone)
+Sfx1 77304503 (get out from tombstone)
 Sfx2 93816904 (Hit)
 Sfx3 86017900 (Pickup gold!)
 Sfx4 93517102 (Respawn)
@@ -351,7 +337,7 @@ Temp, Temp2, Temp3, Temp4
 BackGround
 Sand2, Sand3, Sand4, Bridge3, Bridge4, CastleGround, Grave
 Treasure, Chest, Scroll, ChurchGround3, ChurchGround4
-Player1, Player3, Water, Bush, Tree1, (Tree2,), Fog, CastleWall1, CastleWall4, Corpse, Monster1, Monster2, TombStone
+Player1, Player3, Water, Bush, Tree1, Fog, CastleWall1, CastleWall4, Corpse, Monster1, Monster2, TombStone
 Player2, ChurchGround1, ChurchGround2
 
 
@@ -359,14 +345,10 @@ Player2, ChurchGround1, ChurchGround2
 RULES
 ======
 
-( al principio)
-
-
-(salir de la tumba)
-
+(Get out from the tombstone)
 [ > Tombstone Temp3 ] -> [ Tombstone Temp4 ] Sfx0 Message Booooo ...
-[ > Tombstone Temp2 ] -> [ Tombstone Temp3 ] Sfx0 Message get me out of here!
-[ > Tombstone Temp ] -> [ Tombstone Temp2 ] Sfx0 Message help!
+[ > Tombstone Temp2 ] -> [ Tombstone Temp3 ] Sfx0 Message HELP!
+[ > Tombstone Temp ] -> [ Tombstone Temp2 ] Sfx0 Message get me out of here!
 [ > Tombstone ] -> [ Tombstone Temp ] Sfx0 Message help!
 [ Tombstone Temp4  ] -> [ Player2 ] Sfx1 
 
@@ -374,19 +356,20 @@ RULES
 [ Stationary Monster ] -> [ randomdir Monster ]
 
 
-( medio )
+(---)
+
 [ Monster | ... | Player1 ] -> [ > Monster | ... | Player1 ]
 
 [ > Player1 | Monster ] -> [ Tombstone | ] Sfx2 Message Ouch!
 
 
-( final ) 
+(---)
 
 (Scroll messages)
-late [ Player Scroll Temp ] -> [ Player Scroll Temp ] Message Scroll 1
-late [ Player Scroll Temp2 ] -> [ Player Scroll Temp2 ] Message Scroll 2
-late [ Player Scroll Temp3 ] -> [ Player Scroll Temp3 ] Message Scroll 3
-late [ Player Scroll Temp4 ] -> [ Player Scroll Temp4 ] Message Scroll 4
+late [ Player Scroll Temp ] -> [ Player Scroll Temp ] Message Go East ...
+late [ Player Scroll Temp2 ] -> [ Player Scroll Temp2 ] Message You don't see things as they are
+late [ Player Scroll Temp3 ] -> [ Player Scroll Temp3 ] Message Chests use to be inside Castles
+late [ Player Scroll Temp4 ] -> [ Player Scroll Temp4 ] Message You see things as you are!
 
 
 late [ Player3 Chest ] -> Sfx3 Win
@@ -401,8 +384,6 @@ late [ Player3][Treasure] -> [Player3][Chest]
 ==============
 WINCONDITIONS
 ==============
-
-(All Target on Crate)
 
 =======
 LEVELS
@@ -436,7 +417,7 @@ ffff3..f..2.....mwww.....3...........242...*w.......ffff
 fffff.f..22422..www**m.........n..s332...f.2ww.f...fffff
 ff.ffff.22.....wwww**....f........3324..f........fff.ff.
 
-Message You've Got Your Gold, but not your Soul
+Message You've got your Gold, but not your Soul
 
 Message Be Brave and do not sell your Soul!
 
@@ -445,5 +426,11 @@ Message Made with love in Donostia   Basque Coutry
 Message Global Game Jam 2014 
 
 Message Music Voltergueist
+
+Message Art InK
+
+Message Programming LegrandK
+
+Message Thanks for play!
 
 Message (cc-by) Santa Clara Games
