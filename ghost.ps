@@ -1,5 +1,5 @@
 title Proto1
-author IÑK + LegrandK
+author INK + LegrandK
 homepage www.santaclaragames.com
 
 zoomscreen 9x9
@@ -16,6 +16,12 @@ blackwhitegreydarkgreylightgreygraydarkgraylightgrayreddarkredlightredbrowndarkb
 )
 
 Temp
+black
+
+Temp2
+black
+
+Temp3
 black
 
 Background
@@ -148,12 +154,17 @@ SOUNDS
 =======
 
 (Crate MOVE 36772507)
+Player1 move 87449107 (Steps)
+
+Sfx0 56009504 (golpear tumba)
+Sfx1 77304503 (salir de la tumba)
+Sfx2 93816904 (Hit)
 
 ================
 COLLISIONLAYERS
 ================
 
-Temp
+Temp, Temp2, Temp3
 Background
 Trap, Gold
 Player1, CastleWall, Wall, Tombstone, Water, Monster1, Corpse
@@ -165,16 +176,21 @@ RULES
 ======
 
 ( al principio)
-[ > Tombstone ] -> Cancel
+[ > Tombstone ] -> Cancel 
 
-[ Action Tombstone ] -> [ Player2 ] Message Booooo ...
+(salir de la tumba)
+[ Action Tombstone Temp2 ] -> [ Tombstone Temp3 ] Sfx0
+[ Action Tombstone Temp ] -> [ Tombstone Temp2 ] Sfx0
+[ Action Tombstone ] -> [ Tombstone Temp ] Sfx0
+[ Tombstone Temp3  ] -> [ Player2 ] Sfx1 Message Booooo ...
+
 
 [ Stationary Monster1 ] -> [ randomdir Monster1 ]
 
 ( medio )
 [ Monster1 | ... | Player1 ] -> [ > Monster1 | ... | Player1 ]
 
-[ > Player1 | Monster1 ] -> [ Tombstone | ] Message Close but not cigar ...
+[ > Player1 | Monster1 ] -> [ Tombstone | ] Sfx2 Message Close but not cigar ...
 
 
 ( final )
