@@ -20,6 +20,7 @@ OBJECTS
 blackwhitegreydarkgreylightgreygraydarkgraylightgrayreddarkredlightredbrowndarkbrownlightbrownorangeyellowgreendarkgreenlightgreenbluelightbluedarkbluepurplepink
 )
 
+
 Temp
 black
 
@@ -34,132 +35,293 @@ black
 
 Background
 LIGHTGREEN GREEN
-11111
-01111
-11101
-11111
-10111
-
-Wall
-BROWN DARKBROWN
-00010
-11111
+00001
 01000
-11111
+10010
+00100
+01010
+
+(
+Background2
+GREEN DARKGREEN
+00001
+01000
+10010
+00100
+01010
+)
+
+Sand1
+LIGHTGREEN yellow
+00000
+01001
 00010
+00111
+01110
+
+Sand2
+LIGHTGREEN yellow
+00111
+11111
+11110
+11111
+11110
+
+Sand3
+LIGHTGREEN yellow
+00000
+10010
+01000
+11100
+01110
+
+Sand4
+LIGHTGREEN yellow
+01110
+11000
+11101
+01001
+00000
+
+
+Tree1
+LIGHTGREEN green darkgreen brown darkbrown
+.222.
+21112
+22212
+.343.
+..3..
+
+Tree2
+LIGHTGREEN green darkgreen brown darkbrown
+.222.
+22012
+20112
+22302
+..4..
+
+Bush
+LIGHTGREEN green darkgreen
+.222.
+12011
+20112
+12101
+.222.
+
+Water
+blue darkblue lightblue 
+00002
+01000
+12010
+00120
+01010
+
+Bridge3
+brown lightbrown 
+11011
+00100
+11111
+00100
+11011
+
+Bridge4
+brown lightbrown darkgrey grey
+12321
+02320
+22321
+02320
+12321
+
+CastleWall1
+darkgrey grey lightgrey
+00000
+11121
+11111
+12111
+00000
+
+CastleWall4
+darkgrey grey lightgrey
+01110
+02110
+01110
+01120
+01110
+
+
+CastleGround
+lightgrey grey
+00000
+00010
+00000
+01000
+00000
+
+ChurchGround1
+red
+00000
+00000
+00000
+00000
+00000
+
+ChurchGround2
+darkred
+00000
+00000
+00000
+00000
+00000
+
+ChurchGround3
+red
+00000
+00000
+00000
+00000
+00000
+
+ChurchGround4
+darkred
+00000
+00000
+00000
+00000
+00000
+
+
+Chest
+darkbrown brown orange yellow darkred
+40004
+02220
+11111
+02320
+00000
+
+Treasure
+darkred orange yellow
+01110
+01110
+00100
+00200
+11111
 
 Player1
-Black Orange White Red
+Darkgrey orange lightgrey Red darkred
 .000.
-.111.
-22222
-.333.
-.3.3.
-
+.010.
+32223
+.323.
+.4.4.
 
 Player2
-White Black
-.000.
-01010
-01010
-00000
+White Lightblue
+..00.
+.0000
+.0101
+.0000
 0.0.0
 
 Player3
-DarkGray DarkGreen Grey DarkGreen
+DarkGrey Pink Brown White
 .000.
-.111.
-22222
-.333.
-.3.3.
+.010.
+13331
+.030.
+.2.2.
 
+Corpse
+lightgrey DarkGrey Gray Red
+01310
+02320
+22232
+03220
+03020
 
-CastleWall
-Grey Black LightGrey
-00020
-01100
-00001
-20110
-01000
-
-CastleWall2
-Grey Black LightGrey
-22020
-01100
-00001
-20110
-01022
+Scroll
+white yellow red
+.0010
+.0201
+.0000
+.0020
+.0110
 
 Monster1
-Black Red
+Black darkgrey orange
+.0.0.
+.001.
+.202.
+.001.
+.000.
+
+Monster2
+Black red
 0...0
-0...0
-11011
+.0.0.
+00000
 01010
 00000
 
-Water
-Blue White
-00000
-00010
-01000
-00011
-01000
-
-Trap
-Red
-00000
-00000
-00000
-00000
-00000
-
-Gold
-Yellow White
-.000.
-00100
-00010
-00010
-.000.
-
-Stone
-Black LightGray
-.000.
-00100
-00010
-00010
-.000.
-
-Corpse
-Grey LightGray
-.111.
-.000.
-00000
-.000.
-.0.0.
-
 Tombstone
-White Gray
-11011
-10001
-11011
-11011
-00000
-
+DarkGrey White Gray LightGray
+00100
+01110
+00100
+03130
+22222
 
 =======
 LEGEND
 =======
 
+BackGround = Sand1 or Sand2 or Sand3 or Sand4 or CastleGround or Bridge3 or Bridge4
+
 
 . = Background
+1 = Sand1
+2 = Sand2
+3 = Sand3
+4 = Sand4
+
+! = Tree1
+¡ = Tree2
+B = Bush
+
+w = Water
+
+* = Bridge3
++ = Bridge4
+
+o = CastleGround
+# = CastleWall1
+% = CastleWall4
+
+, = ChurchGround1
+; = ChurchGround2
+: = ChurchGround3
+- = ChurchGround4
+
+$ = Treasure
+€ = Chest
+
+S = Scroll
+
+P = Player1
+G = Player2
+D = Player3
+C = Corpse
+T = Tombstone
+
+M = Monster1
+N = Monster2
+
+(
 $ = Gold
 S = Stone
 # = Wall
 % = CastleWall
 8 = CastleWall2
 C = Corpse
-(@ = Crate and Target )
 T = Tombstone
 k = Trap
 P = Player1
@@ -167,8 +329,30 @@ G = Player2
 D = Player3
 M = Monster1
 W = Water
+)
+
 Player = Player1 or Player2 or Player3 or Tombstone
 
+
+(
+Background = Background1 or Background2 or Background3 or Background4 or Background5 or Background6)
+
+Monster = Monster1 or Monster2
+
+ChurchGround = ChurchGround1 or ChurchGround2
+(
+ChurchWall = ChurchWall1 or ChurchWall2 or ChurchWall3 or ChurchWall4
+)
+
+(
+CastleWall = CastleWall1 or CastleWall2 or CastleWall3 or CastleWall4 or CastleWall5 or CastleWall6)
+
+CastleWall = CastleWall1 or CastleWall4
+
+
+(Bridge = Bridge1 or Bridge2)
+
+(Tree = Tree1 or Tree2)
 
 (
 c = Block
@@ -192,22 +376,31 @@ Sfx4 93517102 (Respawn)
 COLLISIONLAYERS
 ================
 
+(
 Temp, Temp2, Temp3, Temp4
 Background
 Trap, Gold, Stone
 Player1, Player3, CastleWall, Wall, Tombstone, Water, Monster1, Corpse
 Player2, CastleWall2
+)
 
+
+
+Temp, Temp2, Temp3, Temp4
+BackGround,
+Sand1, Sand2, Sand3, Sand4, Bridge3, Bridge4, CastleGround
+Treasure, Chest, Scroll, ChurchGround3, ChurchGround4
+Player1, Player3, Water, Bush, Tree1, Tree2, CastleWall1, CastleWall4, Corpse, Monster1, Monster2, TombStone
+Player2, ChurchGround1, ChurchGround2
 
 ======
 RULES
 ======
 
 ( al principio)
-([ > Tombstone ] -> Cancel )
-
 
 (salir de la tumba)
+
 [ > Tombstone Temp3 ] -> [ Tombstone Temp4 ] Sfx0
 [ > Tombstone Temp2 ] -> [ Tombstone Temp3 ] Sfx0
 [ > Tombstone Temp ] -> [ Tombstone Temp2 ] Sfx0
@@ -215,26 +408,26 @@ RULES
 [ Tombstone Temp4  ] -> [ Player2 ] Sfx1 Message Booooo ...
 
 
-[ Stationary Monster1 ] -> [ randomdir Monster1 ]
+[ Stationary Monster ] -> [ randomdir Monster ]
+
 
 ( medio )
-[ Monster1 | ... | Player1 ] -> [ > Monster1 | ... | Player1 ]
+[ Monster | ... | Player1 ] -> [ > Monster | ... | Player1 ]
 
-[ > Player1 | Monster1 ] -> [ Tombstone | ] Sfx2 Message Ouch!
+[ > Player1 | Monster ] -> [ Tombstone | ] Sfx2 Message Ouch!
 
 
 ( final )
 
-(late [ Player2 Gold ] -> [ Player2 Gold Temp ] Message Only alive people chase gold)
+late [ Player3 Chest ] -> Sfx3 Win
 
-( mega final )
-late [ Player3 Gold ] -> Sfx3 Win
+late [ Player2 Corpse ] -> [ Player3 CastleGround ] Sfx4 Message Aggghhhhh ... Wake up and walk
 
 
-late [ Player2 Corpse ] -> [ Player3 ] Sfx4 Message Aggghhhhh ... Wake up and walk
+late [ Player3][ChurchGround1] -> [ Player3][ChurchGround3]
+late [ Player3][ChurchGround2] -> [ Player3][ChurchGround4]
 
-late [ Player3][Stone] -> [Player3][Gold]
-
+late [ Player3][Treasure] -> [Player3][Chest]
 
 ==============
 WINCONDITIONS
@@ -250,6 +443,15 @@ LEVELS
 
 Message ::: Find the Chest :::
 
+b!.bww%ocooo
+....ww%ooo;;
+b.m.ww%o;,;;
+2222w*+o;,;$
+m.2.ww%o;,;;
+..2.ww%ooo;;
+¡.2pww%ooooo
+
+(old map
 #.....#.#.#....#.#.#....ww%88888888888888888888
 ...#....m.........#...#.ww%...................8
 #.....#......#......m...ww%...................8
@@ -262,6 +464,7 @@ Message ::: Find the Chest :::
 .#.#...#....#.........##ww%...................8
 ................#.#.#.#.ww%...................8
 ...#...##..##.#...#.....ww%88888888888888888888
+)
 
 Message You've Got Your Gold, but not your Soul
 
