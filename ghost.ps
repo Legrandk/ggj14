@@ -16,11 +16,6 @@ noundo
 OBJECTS
 ========
 
-( =COLORS=
-blackwhitegreydarkgreylightgreygraydarkgraylightgrayreddarkredlightredbrowndarkbrownlightbrownorangeyellowgreendarkgreenlightgreenbluelightbluedarkbluepurplepink
-)
-
-
 Temp
 black
 
@@ -40,16 +35,6 @@ LIGHTGREEN GREEN
 10010
 00100
 01010
-
-(
-Background2
-GREEN DARKGREEN
-00001
-01000
-10010
-00100
-01010
-)
 
 Sand1
 LIGHTGREEN yellow
@@ -92,6 +77,7 @@ LIGHTGREEN green darkgreen brown darkbrown
 .343.
 ..3..
 
+(
 Tree2
 LIGHTGREEN green darkgreen brown darkbrown
 .222.
@@ -99,6 +85,15 @@ LIGHTGREEN green darkgreen brown darkbrown
 20112
 22302
 ..4..
+)
+
+Fog
+White
+00000
+00000
+00000
+00000
+00000
 
 Bush
 LIGHTGREEN green darkgreen
@@ -188,7 +183,6 @@ darkred
 00000
 00000
 00000
-
 
 Chest
 darkbrown brown orange yellow darkred
@@ -284,7 +278,8 @@ BackGround = Sand1 or Sand2 or Sand3 or Sand4 or CastleGround or Bridge3 or Brid
 4 = Sand4
 
 ! = Tree1
-¡ = Tree2
+(¡ = Tree2)
+F = Fog
 B = Bush
 
 w = Water
@@ -301,6 +296,7 @@ o = CastleGround
 : = ChurchGround3
 - = ChurchGround4
 
+
 $ = Treasure
 € = Chest
 
@@ -315,49 +311,14 @@ T = Tombstone
 M = Monster1
 N = Monster2
 
-(
-$ = Gold
-S = Stone
-# = Wall
-% = CastleWall
-8 = CastleWall2
-C = Corpse
-T = Tombstone
-k = Trap
-P = Player1
-G = Player2
-D = Player3
-M = Monster1
-W = Water
-)
 
 Player = Player1 or Player2 or Player3 or Tombstone
-
-
-(
-Background = Background1 or Background2 or Background3 or Background4 or Background5 or Background6)
 
 Monster = Monster1 or Monster2
 
 ChurchGround = ChurchGround1 or ChurchGround2
-(
-ChurchWall = ChurchWall1 or ChurchWall2 or ChurchWall3 or ChurchWall4
-)
-
-(
-CastleWall = CastleWall1 or CastleWall2 or CastleWall3 or CastleWall4 or CastleWall5 or CastleWall6)
 
 CastleWall = CastleWall1 or CastleWall4
-
-
-(Bridge = Bridge1 or Bridge2)
-
-(Tree = Tree1 or Tree2)
-
-(
-c = Block
-B = Boss
-)
 
 =======
 SOUNDS
@@ -376,21 +337,11 @@ Sfx4 93517102 (Respawn)
 COLLISIONLAYERS
 ================
 
-(
-Temp, Temp2, Temp3, Temp4
-Background
-Trap, Gold, Stone
-Player1, Player3, CastleWall, Wall, Tombstone, Water, Monster1, Corpse
-Player2, CastleWall2
-)
-
-
-
 Temp, Temp2, Temp3, Temp4
 BackGround,
 Sand1, Sand2, Sand3, Sand4, Bridge3, Bridge4, CastleGround
 Treasure, Chest, Scroll, ChurchGround3, ChurchGround4
-Player1, Player3, Water, Bush, Tree1, Tree2, CastleWall1, CastleWall4, Corpse, Monster1, Monster2, TombStone
+Player1, Player3, Water, Bush, Tree1, (Tree2,), Fog, CastleWall1, CastleWall4, Corpse, Monster1, Monster2, TombStone
 Player2, ChurchGround1, ChurchGround2
 
 
@@ -399,6 +350,7 @@ RULES
 ======
 
 ( al principio)
+
 
 (salir de la tumba)
 
@@ -424,7 +376,6 @@ late [ Player3 Chest ] -> Sfx3 Win
 
 late [ Player2 Corpse ] -> [ Player3 CastleGround ] Sfx4 Message Aggghhhhh ... Wake up and walk
 
-
 late [ Player3][ChurchGround1] -> [ Player3][ChurchGround3]
 late [ Player3][ChurchGround2] -> [ Player3][ChurchGround4]
 
@@ -442,22 +393,21 @@ LEVELS
 
 Message ::: Find the Chest :::
 
-....w..w.....w..w...........
-....wwwww....wwww...........
-...!............ww.w....w.w.
-.................ww%wwwwwwww
-.............!...w#o########
-.............b!.bww%ocoooooo
-.................ww%ooo;;;oo
-.............b...ww%o;,;;;,;
-.............2222w*+o;,;$;,;
-..............m2.ww%o;,;;;,;
-...............2.ww%ooo;;;oo
-.............¡.2.ww%oooooooo
-.................w#o########
-................www%wwwwwwww
-...............wwwwwwwwww...
-
+ffff...w..w.....w..w...........
+fff....wwwww....wwww...........
+ff....!............ww.w....w.w.
+fff.................ww%wwwwwwww
+ff..............!...w#o########
+ffffff..........b!.bww%ocoooooo
+ff..................ww%ooo;;;oo
+f....ff.........b..nww%o;,;;;,;
+f...f.f.........2222w*+o;,;$;,;
+fff..f...........m2nww%o;,;;;,;
+f.ffff............2.ww%ooo;;;oo
+f................n2pww%oooooooo
+f...fff...........n.w#o########
+ff.................www%wwwwwwww
+fffffff...........wwwwwwwwww...
 
 Message You've Got Your Gold, but not your Soul
 
