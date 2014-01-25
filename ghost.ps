@@ -271,6 +271,11 @@ LEGEND
 
 BackGround = Sand2 or Sand3 or Sand4 or CastleGround or Bridge3 or Bridge4 or Grave
 
+Scroll1 = Scroll and Temp
+Scroll2 = Scroll and Temp2
+Scroll3 = Scroll and Temp3
+Scroll4 = Scroll and Temp4
+
 
 . = Background
 ( 1 = Sand1 )
@@ -302,7 +307,10 @@ o = CastleGround
 $ = Treasure
 € = Chest
 
-S = Scroll
+z = Scroll1
+x = Scroll2
+h = Scroll3
+s = Scroll4
 
 P = Player1
 G = Player2
@@ -374,6 +382,13 @@ RULES
 
 ( final ) 
 
+(Scroll messages)
+late [ Player Scroll Temp ] -> [ Player Scroll Temp ] Message Scroll 1
+late [ Player Scroll Temp2 ] -> [ Player Scroll Temp2 ] Message Scroll 2
+late [ Player Scroll Temp3 ] -> [ Player Scroll Temp3 ] Message Scroll 3
+late [ Player Scroll Temp4 ] -> [ Player Scroll Temp4 ] Message Scroll 4
+
+
 late [ Player3 Chest ] -> Sfx3 Win
 
 late [ Player2 Corpse ] -> [ Player3 CastleGround ] Sfx4 Message Aggghhhhh ... Wake up and walk
@@ -398,8 +413,8 @@ Message ::: Find the Chest :::
 fff....4....wwww......4..mm........b...wwwfw*..fffffffff
 .f!.4.........www2.!.........bbbb......2wwwww2....ff.fff
 ff.f.!!.2www...ww.!..4n.4..............b..ww22!....3.fff
-ffff.m.2ww!w..mwww..........4....b.............s.f..ffff
-fffff.f*wbbw....ww..w!b.!bn...s3!..b....b2b.......!.f.ff
+ffff.m.2ww!w..mwww..........4....b.............h.f..ffff
+fffff.f*wbbw....ww..w!b.!bn...x3!..b....b2b.......!.f.ff
 .fff.!..w22ww..4.wwww..222..b.!..4.4.!.b.....n...mffffff
 fff....!42...3......ww.wwwwwwww.www.2!....b4....f.fffff.
 ffff...22..p!........ww%wwwwwwwww%www2..bbb.!........fff
@@ -411,7 +426,7 @@ ff..2f.f.....4b232222w*+o;,;$;,;o+**ww!....24..oo..!.fff
 ffff4.f...2.m......2.w*+o;,;;;,;o+**ww..b.!..@o@o@o.ffff
 ff2ffff.3....b.3...4.ww%ooo;;;ooo%wwww.4....ooooooo.f.ff
 ffb....4..b.4......2.ww%ooooooooo%www.!.4...@o@o@o@..3.f
-ff.sbfff.....3.......w#o#########o#www....!..oooooo!..ff
+ff.zbfff.....3.......w#o#########o#www....!..oooooo!..ff
 fff.......m!...!.3..www%wwwwwwwww%wwwwwww..4!@.@o!...fff
 fffffbbf4..........wwwwwwwwww.b.wwwwwbbbwww.........ffff
 ff!f..3..3.ff!...4.wwwwwwwww.b4.!42ww...4.ww.2.!b..ff.ff
